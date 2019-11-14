@@ -2,8 +2,8 @@ package com.bonecos.kusco.jdbc;
 
 import java.io.*;
 import java.sql.*;
-//import oracle.sql.BLOB;
-//import oracle.sql.CLOB;
+import oracle.sql.BLOB;
+import oracle.sql.CLOB;
 
 /**
  * Base class for Oracle 9i DAO classes.
@@ -12,38 +12,38 @@ import java.sql.*;
  */
 public class AbstractDAO
 {
-//    public void updateClob(Clob clob, String data) throws IOException, SQLException 
-//    {
-//        if (clob == null || data == null) {
-//            return;
-//        }
-//
-//        Reader reader = new StringReader( data );
-//         Writer clobWriter = ((oracle.sql.CLOB)clob).getCharacterOutputStream();
-//        char[] cbuffer = new char[10* 1024];
-//        int nread = 0;
-//        while( (nread= reader.read(cbuffer)) != -1 )
-//          clobWriter.write( cbuffer, 0, nread);
-//        reader.close();
-//        clobWriter.close();
-//    }
+    public void updateClob(Clob clob, String data) throws IOException, SQLException 
+    {
+        if (clob == null || data == null) {
+            return;
+        }
 
-//    public void updateBlob(Blob blob, byte[] data) throws IOException, SQLException
-//    {
-//        if (blob == null || data == null) {
-//            return;
-//        }
-//
-//        OutputStream os = ((oracle.sql.BLOB)blob).getBinaryOutputStream();
-//        InputStream is = new ByteArrayInputStream(data);
-//        byte[] buffer = new byte[10* 1024];
-//        int nread = 0;
-//        while( (nread= is.read(buffer)) != -1 ) {
-//          os.write(buffer, 0, nread);
-//      }
-//        is.close();
-//        os.close();
-//    }
+        Reader reader = new StringReader( data );
+         Writer clobWriter = ((oracle.sql.CLOB)clob).getCharacterOutputStream();
+        char[] cbuffer = new char[10* 1024];
+        int nread = 0;
+        while( (nread= reader.read(cbuffer)) != -1 )
+          clobWriter.write( cbuffer, 0, nread);
+        reader.close();
+        clobWriter.close();
+    }
+
+    public void updateBlob(Blob blob, byte[] data) throws IOException, SQLException
+    {
+        if (blob == null || data == null) {
+            return;
+        }
+
+        OutputStream os = ((oracle.sql.BLOB)blob).getBinaryOutputStream();
+        InputStream is = new ByteArrayInputStream(data);
+        byte[] buffer = new byte[10* 1024];
+        int nread = 0;
+        while( (nread= is.read(buffer)) != -1 ) {
+          os.write(buffer, 0, nread);
+      }
+        is.close();
+        os.close();
+    }
 
 
     public byte[] getBlobColumn(ResultSet rs, int columnIndex)

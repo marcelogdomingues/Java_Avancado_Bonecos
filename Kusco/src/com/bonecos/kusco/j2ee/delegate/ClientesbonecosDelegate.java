@@ -15,6 +15,7 @@ import com.bonecos.kusco.j2ee.session.*;
 import java.rmi.RemoteException;
 import java.math.*;
 import java.util.Date;
+import javax.ejb.*;
 
 public class ClientesbonecosDelegate implements ClientesbonecosDao
 {

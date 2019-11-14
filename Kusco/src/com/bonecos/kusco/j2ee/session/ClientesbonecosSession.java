@@ -15,8 +15,9 @@ import com.bonecos.kusco.exceptions.*;
 import java.rmi.RemoteException;
 import java.math.*;
 import java.util.Date;
+import javax.ejb.*;
 
-public interface ClientesbonecosSession
+public interface ClientesbonecosSession extends EJBObject
 {
 	/** 
 	 * Inserts a new row in the CLIENTESBONECOS table.

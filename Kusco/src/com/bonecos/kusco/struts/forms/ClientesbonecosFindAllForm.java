@@ -2,11 +2,11 @@ package com.bonecos.kusco.struts.forms;
 
 import java.math.*;
 import java.text.*;
-//import org.apache.struts.action.*;
-//import javax.servlet.http.HttpServletRequest;
+import org.apache.struts.action.*;
+import javax.servlet.http.HttpServletRequest;
 import com.bonecos.kusco.dto.*;
 
-public class ClientesbonecosFindAllForm //extends ActionForm
+public class ClientesbonecosFindAllForm extends ActionForm
 {
 	protected String crudMethod;
 

@@ -11,19 +11,19 @@ package com.bonecos.kusco.j2ee.session;
 import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Date;
-//import javax.ejb.CreateException;
-//import javax.ejb.EJBHome;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import com.bonecos.kusco.j2ee.session.ClientesbonecosSession;
 
-//public interface ClientesbonecosSessionHome extends EJBHome
-//{
-//	/**
-//	 * Method 'create'
-//	 * 
-//	 * @throws CreateException
-//	 * @throws RemoteException
-//	 * @return ClientesbonecosSession
-//	 */
-//	public ClientesbonecosSession create() throws CreateException, RemoteException;
-//
-//}
+public interface ClientesbonecosSessionHome extends EJBHome
+{
+	/**
+	 * Method 'create'
+	 * 
+	 * @throws CreateException
+	 * @throws RemoteException
+	 * @return ClientesbonecosSession
+	 */
+	public ClientesbonecosSession create() throws CreateException, RemoteException;
+
+}

@@ -2,11 +2,11 @@ package com.bonecos.kusco.struts.forms;
 
 import java.math.*;
 import java.text.*;
-//import org.apache.struts.action.*;
-//import javax.servlet.http.HttpServletRequest;
+import org.apache.struts.action.*;
+import javax.servlet.http.HttpServletRequest;
 import com.bonecos.kusco.dto.*;
 
-public class ClientesbonecosFindWhereGeneroEqualsForm //extends ActionForm
+public class ClientesbonecosFindWhereGeneroEqualsForm extends ActionForm
 {
 	protected String genero;
 

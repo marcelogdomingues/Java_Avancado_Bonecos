@@ -15,8 +15,9 @@ import com.bonecos.kusco.exceptions.*;
 import java.rmi.RemoteException;
 import java.math.*;
 import java.util.Date;
+import javax.ejb.*;
 
-public class ClientesbonecosSessionBean
+public class ClientesbonecosSessionBean implements SessionBean
 {
 	protected ClientesbonecosDao daoImpl = createDao();
 
@@ -362,9 +363,9 @@ public class ClientesbonecosSessionBean
 	 * 
 	 * @param ctx
 	 */
-//	public void setSessionContext(SessionContext ctx)
-//	{
-//	}
+	public void setSessionContext(SessionContext ctx)
+	{
+	}
 
 	/**
 	 * Method 'unsetSessionContext'

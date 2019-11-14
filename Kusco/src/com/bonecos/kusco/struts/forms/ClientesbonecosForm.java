@@ -2,11 +2,11 @@ package com.bonecos.kusco.struts.forms;
 
 import java.math.*;
 import java.text.*;
-//import org.apache.struts.action.*;
-//import javax.servlet.http.HttpServletRequest;
+import org.apache.struts.action.*;
+import javax.servlet.http.HttpServletRequest;
 import com.bonecos.kusco.dto.*;
 
-public class ClientesbonecosForm //extends ActionForm
+public class ClientesbonecosForm extends ActionForm
 {
 	protected String idCliente;
 
@@ -170,42 +170,42 @@ public class ClientesbonecosForm //extends ActionForm
 	 * @param request
 	 * @return ActionErrors
 	 */
-//	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request)
-//	{
-//		ActionErrors _errors = new ActionErrors();
-//		// attempt to parse idCliente
-//		try {
-//			long _parsed_idCliente = Long.parseLong( idCliente );
-//		}
-//		catch (Exception e) {
-//			_errors.add( ActionErrors.GLOBAL_ERROR, new ActionError("internal.error", e.getMessage()) );
-//		}
-//		
-//		// attempt to parse numeroCc
-//		try {
-//			long _parsed_numeroCc = Long.parseLong( numeroCc );
-//		}
-//		catch (Exception e) {
-//			_errors.add( ActionErrors.GLOBAL_ERROR, new ActionError("internal.error", e.getMessage()) );
-//		}
-//		
-//		// attempt to parse dataNascimento
-//		try {
-//			java.util.Date _parsed_dataNascimento = (dataNascimento == null || dataNascimento.trim().length()==0) ? null : DateFormat.getDateTimeInstance().parse( dataNascimento);
-//		}
-//		catch (Exception e) {
-//			_errors.add( ActionErrors.GLOBAL_ERROR, new ActionError("internal.error", e.getMessage()) );
-//		}
-//		
-//		// attempt to parse dataInsercao
-//		try {
-//			java.util.Date _parsed_dataInsercao = (dataInsercao == null || dataInsercao.trim().length()==0) ? null : DateFormat.getDateTimeInstance().parse( dataInsercao);
-//		}
-//		catch (Exception e) {
-//			_errors.add( ActionErrors.GLOBAL_ERROR, new ActionError("internal.error", e.getMessage()) );
-//		}
-//		
-//		return _errors;
-//	}
+	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request)
+	{
+		ActionErrors _errors = new ActionErrors();
+		// attempt to parse idCliente
+		try {
+			long _parsed_idCliente = Long.parseLong( idCliente );
+		}
+		catch (Exception e) {
+			_errors.add( ActionErrors.GLOBAL_ERROR, new ActionError("internal.error", e.getMessage()) );
+		}
+		
+		// attempt to parse numeroCc
+		try {
+			long _parsed_numeroCc = Long.parseLong( numeroCc );
+		}
+		catch (Exception e) {
+			_errors.add( ActionErrors.GLOBAL_ERROR, new ActionError("internal.error", e.getMessage()) );
+		}
+		
+		// attempt to parse dataNascimento
+		try {
+			java.util.Date _parsed_dataNascimento = (dataNascimento == null || dataNascimento.trim().length()==0) ? null : DateFormat.getDateTimeInstance().parse( dataNascimento);
+		}
+		catch (Exception e) {
+			_errors.add( ActionErrors.GLOBAL_ERROR, new ActionError("internal.error", e.getMessage()) );
+		}
+		
+		// attempt to parse dataInsercao
+		try {
+			java.util.Date _parsed_dataInsercao = (dataInsercao == null || dataInsercao.trim().length()==0) ? null : DateFormat.getDateTimeInstance().parse( dataInsercao);
+		}
+		catch (Exception e) {
+			_errors.add( ActionErrors.GLOBAL_ERROR, new ActionError("internal.error", e.getMessage()) );
+		}
+		
+		return _errors;
+	}
 
 }
