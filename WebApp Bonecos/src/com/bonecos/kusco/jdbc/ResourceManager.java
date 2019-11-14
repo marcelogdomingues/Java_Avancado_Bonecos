@@ -10,7 +10,7 @@ public class ResourceManager
 	throws NamingException, SQLException
 	{
 		InitialContext initCtx = new InitialContext();
-		Object obj = initCtx.lookup( "java:comp/env/JDBC/F16_Bonecos" );
+		Object obj = initCtx.lookup( "JDBC/F16_Bonecos" );
 		DataSource ds = (DataSource) obj;
 		return ds.getConnection();
 	}
