@@ -1,0 +1,5 @@
+Driver Class Name ------- oracle.jdbc.xa.client.OracleXADataSource
+
+url --------------------- jdbc:oracle:thin:@192.168.16.158:1521:orcl
+
+Database User Name ------ u3258
