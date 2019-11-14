@@ -1,5 +1,5 @@
 # Java_Avancado_Bonecos
- Grupo: Boneco - Java Avançado
+ Grupo: Bonecos - Java Avançado
  
  Marcelo 
  Tiago
