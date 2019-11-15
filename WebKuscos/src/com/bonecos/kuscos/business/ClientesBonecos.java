@@ -18,6 +18,11 @@ import com.bonecos.kuscos.factory.ClientesbonecosDaoFactory;
 
 @WebService
 public class ClientesBonecos {
+	
+	/**
+	 * Inserts a client
+	 * @returns false if the insertion fails
+	 */
 	@WebMethod
 	public int insertCliente(Clientesbonecos cliente) {
 		
@@ -38,6 +43,60 @@ public class ClientesBonecos {
 		return res;
 	}
 	
+	/**
+	 * Updates a client
+	 * @returns false if the update fails
+	 */
+	@WebMethod
+	public int updateCliente(Clientesbonecos cliente) {
+		
+		int res = 0;
+		
+		ClientesbonecosDao clientesDao = ClientesbonecosDaoFactory.create();
+		ClientesbonecosPk clientePk = new ClientesbonecosPk(cliente.getIdCliente());
+		
+		try {
+			if(validaNome(cliente) && validaCC(cliente) && validatesAddress(cliente) 
+					&& validaDataNascimento(cliente) && validatesInsertionDate(cliente) && validaGenero(cliente)) {
+			clientesDao.update(clientePk, cliente);
+			}
+			else res = -1;
+		} catch (ClientesbonecosDaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+    
+	/**
+	 * Deletes a client
+	 *@returns false if the update fails
+	 */
+    @WebMethod
+    public int deleteCliente(Clientesbonecos cliente) {
+        
+        int res = 0;
+       
+        ClientesbonecosPk clientePk = new ClientesbonecosPk(cliente.getIdCliente());
+        ClientesbonecosDao clientesDao = ClientesbonecosDaoFactory.create();
+       
+        try {
+            if(clientesDao.findByPrimaryKey(cliente.getIdCliente()) != null) {
+                clientesDao.delete(clientePk);
+            }
+            else res = -1;
+        } catch (ClientesbonecosDaoException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return res;
+    }
+	
+    /**
+     * Validates the client's name 
+     * @return false if the name is null, has digits, exceeds the length's limit or if the first letter isn't in caps lock
+     * @throws ClientesbonecosDaoException
+     */
 	private boolean validaNome (Clientesbonecos cliente) throws ClientesbonecosDaoException {
 		
 		boolean valida = true;
@@ -70,6 +129,10 @@ public class ClientesBonecos {
 		return valida;
 	}
 	
+	/**
+	 * Validates the birth date of the client
+	 * @return false if the date birth is superior to the current date
+	 */
 	private boolean validaDataNascimento (Clientesbonecos cliente) throws ClientesbonecosDaoException {
 		
 		boolean valida = true;
@@ -82,6 +145,10 @@ public class ClientesBonecos {
 		return valida;
 	}
 	
+	/**
+	 * Validates the client's gender
+	 * @return false if the client don't select a gender between 'M' or 'F'
+	 */
 	private boolean validaGenero (Clientesbonecos cliente) throws ClientesbonecosDaoException {
 		
 		boolean valida = true;
@@ -155,44 +222,5 @@ public class ClientesBonecos {
         return valid;
     }
     
-    @WebMethod
-	public int updateCliente(Clientesbonecos cliente) {
-		
-		int res = 0;
-		
-		ClientesbonecosDao clientesDao = ClientesbonecosDaoFactory.create();
-		ClientesbonecosPk clientePk = new ClientesbonecosPk(cliente.getIdCliente());
-		
-		try {
-			if(validaNome(cliente) && validaCC(cliente) && validatesAddress(cliente) 
-					&& validaDataNascimento(cliente) && validatesInsertionDate(cliente) && validaGenero(cliente)) {
-			clientesDao.update(clientePk, cliente);
-			}
-			else res = -1;
-		} catch (ClientesbonecosDaoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return res;
-	}
     
-    @WebMethod
-    public int deleteCliente(Clientesbonecos cliente) {
-        
-        int res = 0;
-       
-        ClientesbonecosPk clientePk = new ClientesbonecosPk(cliente.getIdCliente());
-        ClientesbonecosDao clientesDao = ClientesbonecosDaoFactory.create();
-       
-        try {
-            if(clientesDao.findByPrimaryKey(cliente.getIdCliente()) != null) {
-                clientesDao.delete(clientePk);
-            }
-            else res = -1;
-        } catch (ClientesbonecosDaoException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return res;
-    }
 }
