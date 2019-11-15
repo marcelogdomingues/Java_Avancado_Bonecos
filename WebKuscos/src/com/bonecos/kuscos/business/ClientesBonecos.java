@@ -163,12 +163,14 @@ public class ClientesBonecos {
 	
 	 /**
      * Method that checks if the client's CC number has 9 digits
-     * @return false if the number is invalid
+     * @return false if the number is invalid or if the CC is already registed
      * @throws ClientesbonecosDaoException
      */
     private boolean validaCC(Clientesbonecos bonecos) throws ClientesbonecosDaoException {
        
         boolean valid = true;
+        
+        ClientesbonecosDao lista = new ClientesbonecosDaoFactory().create();
        
         String numberCC = "" + bonecos.getNumeroCc();
         int size = numberCC.length();
@@ -176,6 +178,9 @@ public class ClientesBonecos {
         if (size != 9) {
             valid = false;
             throw new ClientesbonecosDaoException("O CC não tem o numero de digitos corretos");
+        }
+        else if(lista.findWhereNumeroCcEquals(bonecos.getNumeroCc()) != null) {
+        	valid = false;	
         }
         return valid;
     }
@@ -215,12 +220,18 @@ public class ClientesBonecos {
             throw new ClientesbonecosDaoException("Tem de fazer uma inserção!");
            
         }
+        else if(bonecos.getDataNascimento().after(bonecos.getDataInsercao())){
+        	valid = false;
+        	throw new ClientesbonecosDaoException("O prazo para inserção já foi ultrapassado!");
+        }
         else if(Calendar.getInstance().before(bonecos.getDataInsercao())){
             valid = false;
             throw new ClientesbonecosDaoException("O prazo para inserção já foi ultrapassado!");
         }
         return valid;
     }
+    
+    
     
     
 }
