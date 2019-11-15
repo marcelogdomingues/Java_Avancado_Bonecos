@@ -32,6 +32,11 @@ public class Clientes {
 		return res;
 	}
 	
+	/**
+	 * Validates the client's name
+	 * @return false if the name is null, has digits, has a length above 100 or if the first letter of the name is in lower case.
+	 * @throws ClientesbonecosDaoException
+	 */
 	private boolean validaNome (Clientesbonecos cliente) throws ClientesbonecosDaoException {
 		
 		boolean valida = true;
@@ -64,6 +69,11 @@ public class Clientes {
 		return valida;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 * @throws ClientesbonecosDaoException
+	 */
 	private boolean validaDataNascimento (Clientesbonecos cliente) throws ClientesbonecosDaoException {
 		
 		boolean valida = true;
@@ -76,6 +86,12 @@ public class Clientes {
 		return valida;
 	}
 	
+	/**
+	 * 
+	 * @param cliente
+	 * @return
+	 * @throws ClientesbonecosDaoException
+	 */
 	private boolean validaGenero (Clientesbonecos cliente) throws ClientesbonecosDaoException {
 		
 		boolean valida = true;

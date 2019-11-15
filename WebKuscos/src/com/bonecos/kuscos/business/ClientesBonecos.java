@@ -12,6 +12,7 @@ import javax.jws.WebService;
 
 import com.bonecos.kuscos.dao.ClientesbonecosDao;
 import com.bonecos.kuscos.dto.Clientesbonecos;
+import com.bonecos.kuscos.dto.ClientesbonecosPk;
 import com.bonecos.kuscos.exceptions.ClientesbonecosDaoException;
 import com.bonecos.kuscos.factory.ClientesbonecosDaoFactory;
 
@@ -25,11 +26,11 @@ public class ClientesBonecos {
 		ClientesbonecosDao clientesDao = ClientesbonecosDaoFactory.create();
 		
 		try {
-//			if(validaNome(cliente) && validaCC(cliente) && validatesAddress(cliente) 
-//					&& validaDataNascimento(cliente) && validatesInsertionDate(cliente) && validaGenero(cliente)) {
+			if(validaNome(cliente) && validaCC(cliente) && validatesAddress(cliente) 
+					&& validaDataNascimento(cliente) && validatesInsertionDate(cliente) && validaGenero(cliente)) {
 			clientesDao.insert(cliente);
-//			}
-//			else res = -1;
+			}
+			else res = -1;
 		} catch (ClientesbonecosDaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -152,5 +153,46 @@ public class ClientesBonecos {
             throw new ClientesbonecosDaoException("O prazo para inserção já foi ultrapassado!");
         }
         return valid;
+    }
+    
+    @WebMethod
+	public int updateCliente(Clientesbonecos cliente) {
+		
+		int res = 0;
+		
+		ClientesbonecosDao clientesDao = ClientesbonecosDaoFactory.create();
+		ClientesbonecosPk clientePk = new ClientesbonecosPk(cliente.getIdCliente());
+		
+		try {
+			if(validaNome(cliente) && validaCC(cliente) && validatesAddress(cliente) 
+					&& validaDataNascimento(cliente) && validatesInsertionDate(cliente) && validaGenero(cliente)) {
+			clientesDao.update(clientePk, cliente);
+			}
+			else res = -1;
+		} catch (ClientesbonecosDaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+    
+    @WebMethod
+    public int deleteCliente(Clientesbonecos cliente) {
+        
+        int res = 0;
+       
+        ClientesbonecosPk clientePk = new ClientesbonecosPk(cliente.getIdCliente());
+        ClientesbonecosDao clientesDao = ClientesbonecosDaoFactory.create();
+       
+        try {
+            if(clientesDao.findByPrimaryKey(cliente.getIdCliente()) != null) {
+                clientesDao.delete(clientePk);
+            }
+            else res = -1;
+        } catch (ClientesbonecosDaoException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return res;
     }
 }
