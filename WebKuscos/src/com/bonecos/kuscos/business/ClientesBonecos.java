@@ -91,6 +91,38 @@ public class ClientesBonecos {
         }
         return res;
     }
+    
+    @WebMethod
+    public Clientesbonecos[] getListaClientes() {
+    	
+    	ClientesbonecosDao cliDao = ClientesbonecosDaoFactory.create();
+    	Clientesbonecos[] listCli = null;
+    	
+    	try {
+			listCli = cliDao.findAll();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+    	return listCli;
+    }
+    
+    
+    @WebMethod
+    public Clientesbonecos[] pesquisaPorCC(Clientesbonecos cliente) {
+    	
+    	ClientesbonecosDao cliDao = ClientesbonecosDaoFactory.create();
+    	Clientesbonecos[] listCli = null;
+        
+    	try {
+			listCli = cliDao.findWhereNumeroCcEquals(cliente.getNumeroCc());
+			
+		} catch (ClientesbonecosDaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return listCli;
+    }
 	
     /**
      * Validates the client's name 
