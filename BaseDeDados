@@ -1,3 +1,5 @@
+//purge recyclebin;
+
 DROP TABLE clientesBonecos;
 /*Criação tabela clientesBonecos*/
 
@@ -24,18 +26,18 @@ CREATE SEQUENCE u3258.SEQ_CLIENTEBONECOS MINVALUE 1
 /*Inserção de dados*/
 
 INSERT INTO clientesBonecos
-VALUES (1, 123456789, 'Tiago Ferreira', 'Nao é da tua conta', '1995/10/22', '2019/11/14', 'M');
+VALUES (1, 12345678, 'Tiago Ferreira', 'Nao é da tua conta', '1995/10/22', '2019/11/14', 'M');
 
 INSERT INTO clientesBonecos
-VALUES (2, 123456780, 'Ines Martins', 'OGMA', '1994/11/18', '2019/11/10', 'F');
+VALUES (2, 12345678, 'Ines Martins', 'OGMA', '1994/11/18', '2019/11/10', 'F');
 
 INSERT INTO clientesBonecos
-VALUES (3, 234567891, 'João Reis', 'Estadio Alvalade', '1992/10/20', '1900/11/10', 'M');
+VALUES (3, 23456789, 'João Reis', 'Estadio Alvalade', '1992/10/20', '1900/11/10', 'M');
 
 INSERT INTO clientesBonecos
-VALUES (4, 345678912, 'Marcelo Domingues', 'Urban Beach', '1998/10/22', '2017/01/14', 'M');
+VALUES (4, 34567891, 'Marcelo Domingues', 'Urban Beach', '1998/10/22', '2017/01/14', 'M');
 
 INSERT INTO clientesBonecos
-VALUES (5, 456789123, 'Joana Borda DAgua', 'Debaixo da Ponte', '1993/08/01', '2019/11/14', 'F');
+VALUES (5, 45678912, 'Joana Borda DAgua', 'Debaixo da Ponte', '1993/08/01', '2019/11/14', 'F');
 
 COMMIT;
