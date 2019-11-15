@@ -1,14 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Colorlib Templates">
+    <meta name="description" content="Bonecos Candidatos">
     <meta name="author" content="Grupo Bonecos">
-    <meta name="keywords" content="Colorlib Templates">
+    <meta name="keywords" content="Bonecos">
 
     <!-- Titulo da Página-->
     <title>Bonecos Application Website</title>
@@ -34,20 +32,20 @@
                         <div class="card-heading"></div>
                         <div class="card-body">
                             <h2 class="title">Registo do Cliente</h2>
-                            <form method="POST"> <!-- Form De Registo -->
+                            <form id="form1" method="POST"> <!-- Form De Registo -->
                                 <!-- Nome -->
                                 <div class="input-group">
                                         &nbsp;<span id="errmsg2"></span>
-                                    <input class="txtFirstName" id="txtFirstName" type="text" placeholder="Nome" name="name">
+                                    <input class="txtFirstName" id="txtFirstName" type="text" placeholder="Nome" name="name" maxlength="100">
                                 </div>
                                 <!-- Morada -->
                                 <div class="input-group">
-                                        <input class="input--style-2" type="text" placeholder="Morada" name="adress">
+                                        <input class="input--style-2" type="text" placeholder="Morada" name="adress" maxlength="100">
                                     </div>
                                     <!--Cartão de Cidadão-->
                                     <div class="input-group"> 
                                             &nbsp;<span id="errmsg"></span>
-                                            <input class="allownumericwithoutdecimal" type="text" placeholder="Cartão de Cidadão" name="cc_code">                                           
+                                            <input class="allownumericwithoutdecimal" type="text" placeholder="Cartão de Cidadão" name="cc_code" maxlength="8">                                           
                                         </div>
 
                                 <div class="row row-space">
@@ -59,11 +57,10 @@
 
                                         <div class="input-group">
                                                 <input class="input--style-1 js-datepicker" type="text" placeholder="Data de Inscrição" name="registration">
-                                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> <!-- Calendário -->
-                                            </div>
-                                            
-                                            
+                                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i> <!-- Resgito -->
+                                            </div>          
                                     </div>
+
                                     <div class="col-2">
                                         <div class="input-group">
                                             <div class="rs-select2 js-select-simple select--no-search">
@@ -79,7 +76,8 @@
                                     </div>
                                 </div>
                                 <div class="p-t-20">
-                                    <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                                    <button class="btn btn--radius btn--green" type="submit">Inserir</button>
+                                    <button class="btn2 btn--home btn--green" type="submit">Home</button>
                                 </div>
                             </form>
                         </div>
