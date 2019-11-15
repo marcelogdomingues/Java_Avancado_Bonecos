@@ -3,6 +3,7 @@
 	<name>WebKuscosEAR</name>
 	<comment></comment>
 	<projects>
+		<project>WebKuscos</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
