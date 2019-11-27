@@ -4,6 +4,9 @@ import com.bonecos.kuscos.business.ClientesBonecos;
 
 import java.io.*;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
@@ -21,9 +24,10 @@ public class Registo extends HttpServlet {
         //Ultimo Nome
         String last_name = request.getParameter("last_name");
         //Morada
-        String adress = request.getParameter("adress");
-
-        //Falta Datas
+        String address = request.getParameter("address");
+        //Datas
+        String birthday = request.getParameter("birthday");
+        String register = request.getParameter("register");
 
         //Genero
         String gender = request.getParameter("gender");
@@ -39,8 +43,14 @@ public class Registo extends HttpServlet {
         //Nome
         clientesbonecosDto.setNome(first_name + " " + last_name);
         //Morada
-        clientesbonecosDto.setMorada(adress);
-        //Morada
+        clientesbonecosDto.setMorada(address);
+        //Datas
+        try {
+			clientesbonecosDto.setDataInsercao(new SimpleDateFormat("yyyy-mm-dd").parse(register));
+			clientesbonecosDto.setDataNascimento(new SimpleDateFormat("yyyy-mm-dd").parse(birthday));
+		} catch (ParseException e) {
+			// TODO: handle exception
+		}
 
         //Genero
         clientesbonecosDto.setGenero(gender);
