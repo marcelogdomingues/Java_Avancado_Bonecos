@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Java_Avancado_Bonecos.iml" filepath="$PROJECT_DIR$/.idea/Java_Avancado_Bonecos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebKuscos/WebKuscos.iml" filepath="$PROJECT_DIR$/WebKuscos/WebKuscos.iml" />
     </modules>
   </component>
 </project>
