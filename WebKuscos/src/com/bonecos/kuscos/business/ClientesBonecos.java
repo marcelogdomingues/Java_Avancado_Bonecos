@@ -35,7 +35,8 @@ public class ClientesBonecos {
 					&& validaDataNascimento(cliente) && validatesInsertionDate(cliente) && validaGenero(cliente)) {
 			clientesDao.insert(cliente);
 			}
-			else res = -1;
+			else 
+				res = -1;
 		} catch (ClientesbonecosDaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -158,6 +159,7 @@ public class ClientesBonecos {
 			valida = false;
 			throw new ClientesbonecosDaoException("O nome não pode ter mais de 100 caracteres.");
 		}
+		System.out.println("Nome: " + valida);
 		return valida;
 	}
 	
@@ -174,6 +176,7 @@ public class ClientesBonecos {
 			valida = false;
 			throw new ClientesbonecosDaoException("A data de nascimento tem de ser superior à data de hoje.");
 		}
+		System.out.println("DataNascimento: " + valida);
 		return valida;
 	}
 	
@@ -186,10 +189,11 @@ public class ClientesBonecos {
 		boolean valida = true;
 		
 		//Verificar se o género inserido é válido
-		if(cliente.getGenero() != "M" || cliente.getGenero() != "F") {
+		if(!cliente.getGenero().equals("M") && !cliente.getGenero().equals("F")) {
 			valida = false;
 			throw new ClientesbonecosDaoException("Insira um género válido.");
 		}
+		System.out.println("Genero: " + valida);
 		return valida;
 	}
 	
@@ -203,17 +207,20 @@ public class ClientesBonecos {
         boolean valid = true;
         
         ClientesbonecosDao lista = new ClientesbonecosDaoFactory().create();
-       
-        String numberCC = "" + bonecos.getNumeroCc();
-        int size = numberCC.length();
-       
-        if (size != 9) {
+        
+        
+        int size = String.valueOf(bonecos.getNumeroCc()).length();
+        
+        System.out.println("Tamanho: " + size);
+        
+        if (size != 8) {
             valid = false;
             throw new ClientesbonecosDaoException("O CC não tem o numero de digitos corretos");
         }
-        else if(lista.findWhereNumeroCcEquals(bonecos.getNumeroCc()) != null) {
-        	valid = false;	
-        }
+//        else if(lista.findWhereNumeroCcEquals(bonecos.getNumeroCc()) != null) {
+//        	valid = false;	
+//        }
+        System.out.println("CC: " + valid);
         return valid;
     }
    
@@ -236,6 +243,7 @@ public class ClientesBonecos {
             valid = false;
             throw new ClientesbonecosDaoException("O enderenço de morada fornecido excede o limte");
         }
+        System.out.println("Address: " + valid);
         return valid;
     }
    
@@ -256,14 +264,12 @@ public class ClientesBonecos {
         	valid = false;
         	throw new ClientesbonecosDaoException("O prazo para inserção já foi ultrapassado!");
         }
-        else if(Calendar.getInstance().before(bonecos.getDataInsercao())){
+        else if(Calendar.getInstance().after(bonecos.getDataInsercao())){
             valid = false;
             throw new ClientesbonecosDaoException("O prazo para inserção já foi ultrapassado!");
         }
+        System.out.println("InsertionDate: " + valid);
         return valid;
     }
-    
-    
-    
     
 }

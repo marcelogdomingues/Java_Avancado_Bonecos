@@ -60,6 +60,16 @@ $(".txtLastName").keypress(function () {
   $(".txtLastName").val(_txt);
 })
 
+$(".id").on("keypress keyup blur",function (event) {    
+    $(this).val($(this).val().replace(/[^\d].+/, ""));
+     if ((event.which < 48 || event.which > 57 )) { /* FUNCIONAMENTO JQUERY: 
+        Para eventos de teclado ou rato, essa propriedade indica a tecla ou botão específico que foi pressionado. */ 
+      //  $("#errmsg").html("Apenas é permitido Números!").show().fadeOut("slow");
+        return false;
+        }
+
+ });
+
 /*==================================================================
         [ Fields Incompletos ]*/
 

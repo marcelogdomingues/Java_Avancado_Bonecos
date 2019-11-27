@@ -17,6 +17,7 @@ public class Registo extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        int id = Integer.parseInt(request.getParameter("id"));
         //CC
         int nCC = Integer.parseInt(request.getParameter("nCC"));
         //Primeiro Nome
@@ -38,6 +39,7 @@ public class Registo extends HttpServlet {
 
         com.bonecos.kuscos.dto.Clientesbonecos clientesbonecosDto = new com.bonecos.kuscos.dto.Clientesbonecos();
 
+        clientesbonecosDto.setIdCliente(id);
         //Numero CC
         clientesbonecosDto.setNumeroCc(nCC);
         //Nome
@@ -46,8 +48,8 @@ public class Registo extends HttpServlet {
         clientesbonecosDto.setMorada(address);
         //Datas
         try {
-			clientesbonecosDto.setDataInsercao(new SimpleDateFormat("yyyy-mm-dd").parse(register));
-			clientesbonecosDto.setDataNascimento(new SimpleDateFormat("yyyy-mm-dd").parse(birthday));
+			clientesbonecosDto.setDataInsercao(new SimpleDateFormat("yyyy-mm-dd").parse(newFormatDate(register)));
+			clientesbonecosDto.setDataNascimento(new SimpleDateFormat("yyyy-mm-dd").parse(newFormatDate(birthday)));
 		} catch (ParseException e) {
 			// TODO: handle exception
 		}
@@ -59,6 +61,15 @@ public class Registo extends HttpServlet {
 
         out.close();
     }
+    
+    public String newFormatDate(String date) {
+    	String year = date.substring(6, 10);
+    	String month = date.substring(3, 5);
+    	String day = date.substring(0, 2);
+    	
+    	return day + "-" + month + "-" + year;
     }
+   
+}
 
 
