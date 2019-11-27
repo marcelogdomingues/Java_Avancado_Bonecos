@@ -14,23 +14,36 @@ public class Registo extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        //CC
+        int nCC = Integer.parseInt(request.getParameter("nCC"));
         //Primeiro Nome
-        String n = request.getParameter("first_name");
+        String first_name = request.getParameter("first_name");
         //Ultimo Nome
-        String p = request.getParameter("last_name");
+        String last_name = request.getParameter("last_name");
+        //Morada
+        String adress = request.getParameter("adress");
+
         //Falta Datas
 
-        //Morada
-        String e = request.getParameter("adress");
-        //CC
-        int c = Integer.parseInt(request.getParameter("nCC"));
+        //Genero
+        String gender = request.getParameter("gender");
+        //Leitura do Genero
+        System.out.println("Gender is: " + gender);
+
         ClientesBonecos busClienteBonecos = new ClientesBonecos();
 
         com.bonecos.kuscos.dto.Clientesbonecos clientesbonecosDto = new com.bonecos.kuscos.dto.Clientesbonecos();
 
-        clientesbonecosDto.setNome(n + " " + p);
-        clientesbonecosDto.setMorada(e);
-        clientesbonecosDto.setNumeroCc(c);
+        //Numero CC
+        clientesbonecosDto.setNumeroCc(nCC);
+        //Nome
+        clientesbonecosDto.setNome(first_name + " " + last_name);
+        //Morada
+        clientesbonecosDto.setMorada(adress);
+        //Morada
+
+        //Genero
+        clientesbonecosDto.setGenero(gender);
 
         busClienteBonecos.insertCliente(clientesbonecosDto);
 
