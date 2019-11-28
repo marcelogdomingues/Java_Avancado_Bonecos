@@ -47,7 +47,7 @@ calls to this DAO, otherwise a new Connection will be allocated for each operati
 	/** 
 	 * SQL INSERT statement for this table
 	 */
-	protected final String SQL_INSERT = "INSERT INTO " + getTableName() + " ( ID_CLIENTE, NUMERO_CC, NOME, MORADA, DATA_NASCIMENTO, DATA_INSERCAO, GENERO ) VALUES ( ?, ?, ?, ?, ?, ?, ? )";
+	protected final String SQL_INSERT = "INSERT INTO " + getTableName() + " ( ID_CLIENTE, NUMERO_CC, NOME, MORADA, DATA_NASCIMENTO, DATA_INSERCAO, GENERO ) VALUES ( u3258.SEQ_CLIENTEBONECOS.NEXTVAL, ?, ?, ?, ?, ?, ? )";
 
 	/** 
 	 * SQL UPDATE statement for this table
@@ -122,7 +122,7 @@ calls to this DAO, otherwise a new Connection will be allocated for each operati
 		
 			stmt = conn.prepareStatement( SQL_INSERT );
 			int index = 1;
-			stmt.setLong( index++, dto.getIdCliente() );
+			//stmt.setLong( index++, dto.getIdCliente() );
 			stmt.setLong( index++, dto.getNumeroCc() );
 			stmt.setString( index++, dto.getNome() );
 			stmt.setString( index++, dto.getMorada() );

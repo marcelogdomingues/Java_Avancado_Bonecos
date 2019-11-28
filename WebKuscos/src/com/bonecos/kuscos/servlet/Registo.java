@@ -17,7 +17,7 @@ public class Registo extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        //int id = Integer.parseInt(request.getParameter("id"));
         //CC
         int nCC = Integer.parseInt(request.getParameter("nCC"));
         //Primeiro Nome
