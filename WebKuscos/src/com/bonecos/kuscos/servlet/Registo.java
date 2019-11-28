@@ -39,7 +39,7 @@ public class Registo extends HttpServlet {
 
         com.bonecos.kuscos.dto.Clientesbonecos clientesbonecosDto = new com.bonecos.kuscos.dto.Clientesbonecos();
 
-        clientesbonecosDto.setIdCliente(id);
+        //clientesbonecosDto.setIdCliente(id);
         //Numero CC
         clientesbonecosDto.setNumeroCc(nCC);
         //Nome
@@ -58,8 +58,14 @@ public class Registo extends HttpServlet {
         clientesbonecosDto.setGenero(gender);
 
         busClienteBonecos.insertCliente(clientesbonecosDto);
-
+        
         out.close();
+        
+        PrintWriter out2 = response.getWriter(); 
+
+        out2.println("<html><body><b>Successfully Inserted"
+
+                    + "</b></body></html>");
     }
     
     public String newFormatDate(String date) {

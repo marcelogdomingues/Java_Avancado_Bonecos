@@ -1,6 +1,7 @@
 package com.bonecos.kuscos.servlet;
 
 import com.bonecos.kuscos.business.ClientesBonecos;
+import com.bonecos.kuscos.dto.Clientesbonecos;
 
 import java.io.*;
 import java.sql.*;
@@ -17,8 +18,12 @@ public class Listagem extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         ClientesBonecos busClienteBonecos = new ClientesBonecos();
+        String Cli = request.getParameter("listaclientes");
+        Clientesbonecos[] listCli = busClienteBonecos.getListaClientes();
+        Clientesbonecos cliente = new Clientesbonecos();
 
-        busClienteBonecos.getListaClientes();
+        request.setAttribute("listaclientes", listCli);
+        request.setAttribute("cliente", cliente);
 
         out.close();
     }

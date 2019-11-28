@@ -54,7 +54,7 @@
 
 <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
     <div class="wrapper wrapper--w680">
-        <form method="POST" action="servelet/Listagem">
+        <form method="get" action="servelet/Listagem">
             <div class="container-table100">
                 <div class="wrap-table100">
                     <div class="table100">
@@ -67,17 +67,19 @@
                                 <th class="column4">Data de Registo</th>
                                 <th class="column5">Morada</th>
                                 <th class="column6">Numero de CC</th>
+                                <th class="column7">Genero</th>
                             </tr>
                             </thead>
                             <tbody>
 
                             <tr>
-                                <td class="column1"><%=request getAttribute("id") %></td>
-                                <td class="column3"><%=request getAttribute("first_name" + " " + "last_name") %></td>
+                                <td class="column1"><%=request getAttribute(id) %></td>
+                                <td class="column3"><%=request getAttribute(name) %></td>
                                 <td class="column5"><%=request getAttribute(birthday) %>F</td>
                                 <td class="column6"><%=request getAttribute(register) %></td>
                                 <td class="column4"><%=request getAttribute(address) %></td>
-                                <td class="column2"><%=request getAttribute("nCC") %> </td>
+                                <td class="column2"><%=request getAttribute(nCC) %> </td>
+                                <td class="column7"><%=request getAttribute(gender) %> </td>
 
                             </tr>
 
