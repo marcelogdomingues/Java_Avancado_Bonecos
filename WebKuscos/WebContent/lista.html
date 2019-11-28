@@ -70,14 +70,35 @@
                             </tr>
                             </thead>
                             <tbody>
+
+                            <% for(int i = 0; i < list.size(); i++) {
+                            Actor actor = new Actor();
+                            actor = list.get(i); %>
+
                             <tr>
-                                <td class="column1">12</td>
-                                <td class="column2">MARCELO </td>
-                                <td class="column3">12.12.12</td>
-                                <td class="column4">13.13.13</td>
-                                <td class="column5">ASDFGAGSFADSGF</td>
-                                <td class="column6">12345678</td>
+                                <td class="column1"><%=request getAttribute("id") %></td>
+                                <td class="column3"><%=request getAttribute("first_name" + " " + "last_name") %></td>
+                                <td class="column5"><%=request getAttribute(birthday) %>F</td>
+                                <td class="column6"><%=request getAttribute(register) %></td>
+                                <td class="column4"><%=request getAttribute(address) %></td>
+                                <td class="column2"><%=request getAttribute("nCC") %> </td>
+
                             </tr>
+
+                            int nCC = Integer.parseInt(request.getParameter(""));
+                            //Primeiro Nome
+                            String first_name = request.getParameter("");
+                            //Ultimo Nome
+                            String last_name = request.getParameter("last_name");
+                            //Morada
+                            String address = request.getParameter("address");
+                            //Datas
+                            String birthday = request.getParameter("birthday");
+                            String register = request.getParameter("register");
+
+                            //Genero
+                            String gender = request.getParameter("gender");
+
 
                             </tbody>
                         </table>
